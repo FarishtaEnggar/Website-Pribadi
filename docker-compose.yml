@@ -4,6 +4,8 @@ services:
       context: .
       dockerfile: Dockerfile
     image: website-pribadi:latest
+    # The image is built locally, never pulled from a registry.
+    pull_policy: build
     container_name: website-pribadi
     restart: unless-stopped
     environment:
