@@ -10,11 +10,15 @@ FROM deps AS builder
 WORKDIR /app
 COPY . .
 ENV NEXT_TELEMETRY_DISABLED=1
-ENV NODE_OPTIONS=--max-old-space-size=1024
+# The production host is small (1 vCPU / 1 GB RAM), so cap the Node heap and
+# use Webpack instead of Turbopack: Turbopack segfaults under this memory limit.
+ENV NODE_OPTIONS=--max-old-space-size=768
 # A throwaway database lets the build run `prisma generate` and (if needed)
 # prerender pages that touch Prisma. Real data lives in the /data volume.
 ENV DATABASE_URL=file:/tmp/build.db
-RUN npx prisma db push --skip-generate && npm run build
+RUN npx prisma db push --skip-generate \
+  && npx prisma generate \
+  && npx next build --webpack
 
 FROM node:22-alpine AS runner
 RUN apk add --no-cache libc6-compat openssl
