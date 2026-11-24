@@ -17,7 +17,6 @@ services:
       - app_uploads:/app/uploads
     networks:
       - edge
-    mem_limit: 640m
     healthcheck:
       test:
         [
