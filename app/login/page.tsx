@@ -68,19 +68,6 @@ export default async function LoginPage() {
           </p>
 
           <LoginForm />
-
-          <div className="mt-8 border border-line bg-paper-soft/60 p-4">
-            <p className="eyebrow text-ink-soft">Seeded demo account</p>
-            <p className="mt-2 font-mono text-xs leading-relaxed text-ink-soft">
-              admin@example.com
-              <br />
-              admin12345
-            </p>
-            <p className="mt-2 text-[11px] leading-relaxed text-ink-soft/80">
-              Change these values in <code>.env</code> and run{" "}
-              <code>npm run db:seed</code> again to update the password.
-            </p>
-          </div>
         </div>
       </div>
     </div>
