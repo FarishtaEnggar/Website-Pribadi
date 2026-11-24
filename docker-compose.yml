@@ -1,11 +1,9 @@
 services:
   app:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    image: website-pribadi:latest
-    # The image is built locally, never pulled from a registry.
-    pull_policy: build
+    # Built and published by .github/workflows/docker-publish.yml.
+    # The server only pulls the image, so no Next.js build runs on the host.
+    image: ghcr.io/farishtaenggar/website-pribadi:latest
+    pull_policy: always
     container_name: website-pribadi
     restart: unless-stopped
     environment:
