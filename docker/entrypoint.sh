@@ -3,6 +3,11 @@ set -eu
 
 mkdir -p /data /app/uploads
 
+# Regenerate the Prisma client for this container so it never ships as the
+# uninitialised stub from the npm postinstall step.
+echo "[entrypoint] generating prisma client"
+npx prisma generate --schema /app/prisma/schema.prisma
+
 if [ ! -f /data/.initialized ]; then
   echo "[entrypoint] initializing database at ${DATABASE_URL:-unset}"
   npx prisma db push --skip-generate --schema /app/prisma/schema.prisma
