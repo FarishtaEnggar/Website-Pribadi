@@ -16,8 +16,15 @@
   --font-display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
 }
 
-/* Public site identity: dark terminal. Scoped so /admin and /login stay light. */
-.site-shell {
+/*
+ * Theme contract.
+ * Public pages opt into dark with data-theme="dark".
+ * Admin and login opt into light with data-theme="light".
+ * The values in @theme above stay as the light default.
+ */
+[data-theme="dark"] {
+  color-scheme: dark;
+
   --color-paper: #060a0f;
   --color-paper-soft: #0b1118;
   --color-ink: #e7eef6;
@@ -29,13 +36,25 @@
   --color-cobalt-soft: #0f2419;
   --color-on-accent: #04160e;
 
-  --font-sans: "Manrope", ui-sans-serif, system-ui, -apple-system, sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
   --eyebrow-font: var(--font-mono);
+}
 
+[data-theme="light"] {
+  color-scheme: light;
+}
+
+/* Layout wrapper for the public site. Tokens come from [data-theme]. */
+.site-shell {
   background-color: var(--color-paper);
   color: var(--color-ink);
   font-family: var(--font-sans);
+}
+
+/* Keep the browser's overscroll area dark while a dark shell is on screen. */
+body:has(.site-shell) {
+  background-color: #060a0f;
+  color: #e7eef6;
 }
 
 @layer base {

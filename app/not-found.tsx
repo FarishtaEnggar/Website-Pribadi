@@ -2,7 +2,10 @@ import Link from "next/link";
 
 export default function NotFound() {
   return (
-    <div className="site-shell relative flex min-h-screen flex-col items-center justify-center overflow-hidden px-6 py-20 text-center">
+    <div
+      data-theme="dark"
+      className="site-shell relative flex min-h-screen flex-col items-center justify-center overflow-hidden px-6 py-20 text-center"
+    >
       <div aria-hidden="true" className="grid-backdrop absolute inset-0" />
       <div className="relative">
         <p className="eyebrow text-cobalt">404 — Not found</p>

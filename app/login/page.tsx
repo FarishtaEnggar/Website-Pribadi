@@ -17,7 +17,7 @@ export default async function LoginPage() {
   const profile = await getProfile();
 
   return (
-    <div className="grid min-h-screen lg:grid-cols-2">
+    <div data-theme="light" className="grid min-h-screen lg:grid-cols-2">
       <div className="relative hidden flex-col justify-between bg-cobalt p-12 text-white lg:flex xl:p-16">
         <Link
           href="/"

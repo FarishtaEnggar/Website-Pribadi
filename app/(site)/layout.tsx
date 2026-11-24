@@ -29,7 +29,10 @@ export default async function SiteLayout({
   const profile = await getProfile();
 
   return (
-    <div className="site-shell flex min-h-screen flex-col">
+    <div
+      data-theme="dark"
+      className="site-shell flex min-h-screen flex-col"
+    >
       <SiteHeader name={profile.name} />
       <main className="flex-1">{children}</main>
       <SiteFooter profile={profile} />

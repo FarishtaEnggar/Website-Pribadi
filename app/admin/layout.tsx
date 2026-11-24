@@ -24,7 +24,7 @@ export default async function AdminLayout({
   ]);
 
   return (
-    <div className="min-h-screen bg-paper md:flex">
+    <div data-theme="light" className="min-h-screen bg-paper md:flex">
       <AdminNav name={profile.name} unreadCount={unreadCount} />
       <div className="min-w-0 flex-1">{children}</div>
     </div>
