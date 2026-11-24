@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { logoutAction } from "@/app/admin/actions";
+import { ThemeToggle } from "@/components/theme-toggle";
 
 const items = [
   { href: "/admin", label: "Overview" },
@@ -51,6 +52,10 @@ export function AdminNav({
         </form>
       </div>
 
+      <div className="border-b border-line px-3 py-2 md:hidden">
+        <ThemeToggle variant="row" />
+      </div>
+
       <nav
         aria-label="Admin"
         className="flex gap-1 overflow-x-auto border-b border-line px-3 py-2 md:mt-6 md:flex-1 md:flex-col md:overflow-visible md:border-b-0 md:px-4 md:py-0"
@@ -64,7 +69,7 @@ export function AdminNav({
               aria-current={active ? "page" : undefined}
               className={`flex shrink-0 items-center justify-between gap-3 px-3 py-2.5 text-sm transition-colors md:shrink ${
                 active
-                  ? "bg-cobalt text-white"
+                  ? "bg-cobalt text-on-accent"
                   : "text-ink-soft hover:bg-paper hover:text-ink"
               }`}
             >
@@ -72,7 +77,7 @@ export function AdminNav({
               {item.href === "/admin/messages" && unreadCount > 0 && (
                 <span
                   className={`flex h-5 min-w-5 items-center justify-center rounded-full px-1 text-[10px] font-semibold ${
-                    active ? "bg-paper text-cobalt" : "bg-cobalt text-white"
+                    active ? "bg-paper text-cobalt" : "bg-cobalt text-on-accent"
                   }`}
                 >
                   {unreadCount}
@@ -84,6 +89,7 @@ export function AdminNav({
       </nav>
 
       <div className="hidden border-t border-line p-4 md:block">
+        <ThemeToggle variant="row" />
         <Link
           href="/"
           target="_blank"

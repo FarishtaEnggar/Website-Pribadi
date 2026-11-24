@@ -70,7 +70,7 @@ export default async function AdminMessageDetailPage({
           href={`mailto:${message.email}?subject=${encodeURIComponent(
             `Re: ${message.subject}`,
           )}`}
-          className="inline-flex items-center gap-2 bg-cobalt px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-cobalt-deep"
+          className="inline-flex items-center gap-2 bg-cobalt px-5 py-3 text-sm font-semibold text-on-accent transition-colors hover:bg-cobalt-deep"
         >
           Reply by email
           <span aria-hidden="true">↗</span>

@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { requireSession } from "@/lib/auth";
 import { prisma } from "@/lib/db";
 import { getProfile } from "@/lib/data";
+import { getTheme } from "@/lib/theme-server";
+import { ThemeShell } from "@/components/theme-shell";
 import { AdminNav } from "@/components/admin/admin-nav";
 
 export const dynamic = "force-dynamic";
@@ -18,15 +20,20 @@ export default async function AdminLayout({
 }) {
   await requireSession();
 
-  const [profile, unreadCount] = await Promise.all([
+  const [profile, unreadCount, theme] = await Promise.all([
     getProfile(),
     prisma.message.count({ where: { read: false } }),
+    getTheme("admin"),
   ]);
 
   return (
-    <div data-theme="light" className="min-h-screen bg-paper md:flex">
+    <ThemeShell
+      scope="admin"
+      initialTheme={theme}
+      className="min-h-screen bg-paper md:flex"
+    >
       <AdminNav name={profile.name} unreadCount={unreadCount} />
       <div className="min-w-0 flex-1">{children}</div>
-    </div>
+    </ThemeShell>
   );
 }

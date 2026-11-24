@@ -27,7 +27,7 @@ export default async function AdminCertificationsPage() {
         </div>
         <Link
           href="/admin/certifications/new"
-          className="inline-flex items-center gap-2 bg-cobalt px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-cobalt-deep"
+          className="inline-flex items-center gap-2 bg-cobalt px-5 py-3 text-sm font-semibold text-on-accent transition-colors hover:bg-cobalt-deep"
         >
           + New certification
         </Link>

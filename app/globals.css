@@ -18,10 +18,28 @@
 
 /*
  * Theme contract.
- * Public pages opt into dark with data-theme="dark".
- * Admin and login opt into light with data-theme="light".
- * The values in @theme above stay as the light default.
+ * Public pages default to dark, admin and login default to light.
+ * The active theme is set on the shell with data-theme, so every token below
+ * resolves per shell and a nested shell can opt back into the other palette.
  */
+[data-theme="light"] {
+  color-scheme: light;
+
+  --color-paper: #f5f2ea;
+  --color-paper-soft: #ece7db;
+  --color-ink: #15171b;
+  --color-ink-soft: #585b63;
+  --color-line: #d8d2c4;
+  --color-cobalt: #1b3bd8;
+  --color-cobalt-deep: #142ca6;
+  --color-cobalt-soft: #e4e8fb;
+  --color-on-accent: #ffffff;
+
+  --eyebrow-font: var(--font-sans);
+  --hero-glow: 27 59 216;
+  --grid-line: 21 23 27;
+}
+
 [data-theme="dark"] {
   color-scheme: dark;
 
@@ -38,21 +56,19 @@
 
   --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
   --eyebrow-font: var(--font-mono);
+  --hero-glow: 61 220 151;
+  --grid-line: 255 255 255;
 }
 
-[data-theme="light"] {
-  color-scheme: light;
-}
-
-/* Layout wrapper for the public site. Tokens come from [data-theme]. */
+/* Layout wrapper for each shell. Tokens come from [data-theme]. */
 .site-shell {
   background-color: var(--color-paper);
   color: var(--color-ink);
   font-family: var(--font-sans);
 }
 
-/* Keep the browser's overscroll area dark while a dark shell is on screen. */
-body:has(.site-shell) {
+/* Paint the canvas behind the shell so overscroll matches the active theme. */
+body:has([data-theme="dark"]) {
   background-color: #060a0f;
   color: #e7eef6;
 }
@@ -132,8 +148,8 @@ body:has(.site-shell) {
 /* Blueprint grid behind the hero, masked so it never fights the copy. */
 .grid-backdrop {
   background-image:
-    linear-gradient(to right, rgb(255 255 255 / 0.045) 1px, transparent 1px),
-    linear-gradient(to bottom, rgb(255 255 255 / 0.045) 1px, transparent 1px);
+    linear-gradient(to right, rgb(var(--grid-line) / 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgb(var(--grid-line) / 0.05) 1px, transparent 1px);
   background-size: 64px 64px;
   -webkit-mask-image: radial-gradient(
     ellipse 78% 65% at 50% 35%,
@@ -147,10 +163,18 @@ body:has(.site-shell) {
   );
 }
 
+.hero-glow {
+  background: radial-gradient(
+    circle at 60% 45%,
+    rgb(var(--hero-glow) / 0.14),
+    transparent 62%
+  );
+}
+
 .glow-accent {
   background: radial-gradient(
     circle at center,
-    rgb(61 220 151 / 0.16),
+    rgb(var(--hero-glow) / 0.16),
     transparent 68%
   );
 }
@@ -161,8 +185,8 @@ body:has(.site-shell) {
   background-color: color-mix(in oklab, var(--color-paper-soft) 88%, transparent);
   backdrop-filter: blur(12px);
   box-shadow:
-    0 0 0 1px rgb(61 220 151 / 0.06),
-    0 24px 60px -30px rgb(0 0 0 / 0.9);
+    0 0 0 1px rgb(var(--hero-glow) / 0.06),
+    0 24px 60px -30px rgb(0 0 0 / 0.45);
 }
 
 @keyframes rise {
@@ -214,6 +238,19 @@ body:has(.site-shell) {
   .cursor-blink {
     animation: none;
   }
+}
+
+/* Feedback banners that stay legible on both palettes. */
+.alert-error {
+  border-left: 2px solid #dc2626;
+  background-color: color-mix(in oklab, #dc2626 12%, transparent);
+  color: color-mix(in oklab, #dc2626 78%, var(--color-ink));
+}
+
+.alert-success {
+  border-left: 2px solid var(--color-cobalt);
+  background-color: color-mix(in oklab, var(--color-cobalt) 14%, transparent);
+  color: color-mix(in oklab, var(--color-cobalt) 45%, var(--color-ink));
 }
 
 /* Prose for long descriptions written in the dashboard */

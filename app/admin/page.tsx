@@ -160,7 +160,7 @@ export default async function AdminOverviewPage() {
         <div className="mt-4 flex flex-wrap gap-3">
           <Link
             href="/admin/portfolio/new"
-            className="bg-cobalt px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-cobalt-deep"
+            className="bg-cobalt px-5 py-3 text-sm font-semibold text-on-accent transition-colors hover:bg-cobalt-deep"
           >
             + New project
           </Link>

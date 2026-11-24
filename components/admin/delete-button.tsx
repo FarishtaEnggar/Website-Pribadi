@@ -23,7 +23,7 @@ export function DeleteButton({
       <input type="hidden" name="id" value={id} />
       <button
         type="submit"
-        className="text-xs font-semibold text-red-700 underline-offset-4 transition-colors hover:text-red-900 hover:underline"
+        className="text-xs font-semibold text-red-600 underline-offset-4 transition-colors hover:text-red-500 hover:underline"
       >
         {label}
       </button>

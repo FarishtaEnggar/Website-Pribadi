@@ -73,6 +73,17 @@ All content is managed from `/admin`:
 
 Images (profile photo, project cover, certification logo) can be uploaded directly from your computer or set with a path/URL.
 
+## Light and dark mode
+
+The public site and the admin dashboard each remember their own theme.
+
+- Public default: **dark** (terminal palette).
+- Admin default: **light** (editorial palette).
+- The login screen follows the admin theme.
+- Use the toggle in the public navbar (or mobile menu) and in the admin sidebar.
+
+Preferences are stored in `public_theme` and `admin_theme` cookies for one year, so the correct theme is rendered on the server and there is no flash of the wrong palette. Clearing cookies resets both to their defaults.
+
 ## Using your own photo
 
 You can upload photos straight from your laptop in the dashboard — no manual file copying needed.

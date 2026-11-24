@@ -1,9 +1,12 @@
 import Link from "next/link";
+import { getTheme } from "@/lib/theme-server";
 
-export default function NotFound() {
+export default async function NotFound() {
+  const theme = await getTheme("public");
+
   return (
     <div
-      data-theme="dark"
+      data-theme={theme}
       className="site-shell relative flex min-h-screen flex-col items-center justify-center overflow-hidden px-6 py-20 text-center"
     >
       <div aria-hidden="true" className="grid-backdrop absolute inset-0" />

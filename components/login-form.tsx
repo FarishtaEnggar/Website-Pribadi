@@ -52,7 +52,7 @@ export function LoginForm() {
       <button
         type="submit"
         disabled={pending}
-        className="group inline-flex w-full items-center justify-between gap-3 bg-cobalt px-6 py-4 text-sm font-semibold text-white transition-colors hover:bg-cobalt-deep disabled:cursor-not-allowed disabled:opacity-60"
+        className="group inline-flex w-full items-center justify-between gap-3 bg-cobalt px-6 py-4 text-sm font-semibold text-on-accent transition-colors hover:bg-cobalt-deep disabled:cursor-not-allowed disabled:opacity-60"
       >
         <span>{pending ? "Signing in…" : "Sign in"}</span>
         <span

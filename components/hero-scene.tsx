@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import { useTheme } from "@/components/theme-shell";
 
 /**
  * Hero visual: a slowly rotating wireframe system with a particle field.
@@ -9,6 +10,7 @@ import { useEffect, useRef } from "react";
  */
 export function HeroScene({ className = "" }: { className?: string }) {
   const host = useRef<HTMLDivElement>(null);
+  const { theme } = useTheme();
 
   useEffect(() => {
     const el = host.current;
@@ -41,8 +43,10 @@ export function HeroScene({ className = "" }: { className?: string }) {
       const camera = new THREE.PerspectiveCamera(45, 1, 0.1, 100);
       camera.position.set(0, 0.3, 6.2);
 
-      const green = new THREE.Color("#3ddc97");
-      const cyan = new THREE.Color("#38bdf8");
+      const isDark = theme === "dark";
+      const primary = new THREE.Color(isDark ? "#3ddc97" : "#1b3bd8");
+      const secondary = new THREE.Color(isDark ? "#38bdf8" : "#142ca6");
+      const opacity = isDark ? 1 : 0.8;
 
       const group = new THREE.Group();
       scene.add(group);
@@ -52,9 +56,9 @@ export function HeroScene({ className = "" }: { className?: string }) {
         new THREE.LineSegments(
           new THREE.WireframeGeometry(shellGeo),
           new THREE.LineBasicMaterial({
-            color: green,
+            color: primary,
             transparent: true,
-            opacity: 0.5,
+            opacity: 0.5 * opacity,
           }),
         ),
       );
@@ -64,19 +68,19 @@ export function HeroScene({ className = "" }: { className?: string }) {
         new THREE.Mesh(
           coreGeo,
           new THREE.MeshBasicMaterial({
-            color: cyan,
+            color: secondary,
             wireframe: true,
             transparent: true,
-            opacity: 0.32,
+            opacity: 0.32 * opacity,
           }),
         ),
       );
 
       const ringGeo = new THREE.TorusGeometry(2.3, 0.006, 6, 160);
       const ringMat = new THREE.MeshBasicMaterial({
-        color: green,
+        color: primary,
         transparent: true,
-        opacity: 0.26,
+        opacity: 0.26 * opacity,
       });
       const ringA = new THREE.Mesh(ringGeo, ringMat);
       ringA.rotation.set(Math.PI / 2.4, 0.2, 0);
@@ -99,10 +103,10 @@ export function HeroScene({ className = "" }: { className?: string }) {
       const points = new THREE.Points(
         pointsGeo,
         new THREE.PointsMaterial({
-          color: cyan,
+          color: secondary,
           size: 0.022,
           transparent: true,
-          opacity: 0.55,
+          opacity: 0.55 * opacity,
           depthWrite: false,
           blending: THREE.AdditiveBlending,
         }),
@@ -189,14 +193,11 @@ export function HeroScene({ className = "" }: { className?: string }) {
       cancelled = true;
       stop();
     };
-  }, []);
+  }, [theme]);
 
   return (
     <div className={`relative overflow-hidden ${className}`}>
-      <div
-        aria-hidden="true"
-        className="absolute inset-0 bg-[radial-gradient(circle_at_60%_45%,rgba(61,220,151,0.14),transparent_62%)]"
-      />
+      <div aria-hidden="true" className="hero-glow absolute inset-0" />
       <div ref={host} aria-hidden="true" className="absolute inset-0" />
     </div>
   );

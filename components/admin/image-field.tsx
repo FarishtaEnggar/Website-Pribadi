@@ -105,7 +105,7 @@ export function ImageField({
             className={inputClass}
           />
 
-          {error && <p className="text-xs text-red-700">{error}</p>}
+          {error && <p className="text-xs text-red-600">{error}</p>}
           {help && <p className="text-xs text-ink-soft">{help}</p>}
         </div>
       </div>
