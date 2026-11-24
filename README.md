@@ -132,3 +132,6 @@ Copy that file to back up all content and messages. Uploaded images live in `upl
 
 <!-- deployment check: 2026-11-25T01:34:33 -->
 
+
+<!-- auto deploy e2e check: 2026-11-25T02:38:01 -->
+
