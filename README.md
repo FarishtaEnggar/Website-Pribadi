@@ -129,3 +129,6 @@ Copy that file to back up all content and messages. Uploaded images live in `upl
 - This build targets local usage. SQLite on serverless platforms such as Vercel does not persist writes; use a hosted database (for example PostgreSQL or Turso) before deploying there.
 - Uploaded images are written to the local `uploads/` folder. On serverless hosts that filesystem is ephemeral, so use object storage there.
 - Only one admin account is supported. There is no public registration or password reset flow.
+
+<!-- deployment check: 2026-11-25T01:34:33 -->
+
