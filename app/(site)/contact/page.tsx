@@ -24,8 +24,8 @@ export default async function ContactPage() {
           <span aria-hidden="true" className="h-px w-10 bg-cobalt" />
           Contact
         </p>
-        <h1 className="mt-6 font-serif text-[clamp(2.8rem,7vw,5.5rem)] leading-[0.95] tracking-[-0.02em]">
-          Say <span className="italic text-cobalt">hello</span>.
+        <h1 className="mt-6 font-display text-[clamp(2.8rem,7vw,5rem)] font-medium leading-[0.94] tracking-[-0.045em]">
+          Say <span className="text-cobalt">hello</span>.
         </h1>
         <p className="mt-6 max-w-xl text-base leading-relaxed text-ink-soft text-pretty">
           Whether you have a project in mind, a question I might be able to
@@ -84,7 +84,7 @@ export default async function ContactPage() {
           )}
 
           <div className="mt-10 border border-line bg-paper-soft/60 p-6">
-            <p className="font-serif text-xl leading-snug">
+            <p className="font-display text-xl font-medium leading-snug">
               Typical reply time
             </p>
             <p className="mt-2 text-sm leading-relaxed text-ink-soft">

@@ -19,10 +19,10 @@ export default async function PortfolioPage() {
             <span aria-hidden="true" className="h-px w-10 bg-cobalt" />
             Portfolio
           </p>
-          <h1 className="mt-6 font-serif text-[clamp(2.8rem,7vw,5.5rem)] leading-[0.95] tracking-[-0.02em]">
+          <h1 className="mt-6 font-display text-[clamp(2.8rem,7vw,5rem)] font-medium leading-[0.92] tracking-[-0.045em]">
             Selected
             <br />
-            <span className="italic text-cobalt">work</span>
+            <span className="text-cobalt">work</span>
           </h1>
         </div>
         <div className="lg:col-span-4">
@@ -38,7 +38,7 @@ export default async function PortfolioPage() {
 
       {projects.length === 0 ? (
         <div className="mt-16 border border-dashed border-line px-6 py-20 text-center">
-          <p className="font-serif text-3xl">No projects published yet</p>
+          <p className="font-display text-3xl">No projects published yet</p>
           <p className="mx-auto mt-3 max-w-sm text-sm text-ink-soft">
             Published projects will appear here as soon as they are ready.
           </p>

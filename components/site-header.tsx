@@ -6,8 +6,8 @@ import { useEffect, useState } from "react";
 
 const links = [
   { href: "/", label: "Home" },
+  { href: "/portfolio", label: "Work" },
   { href: "/certifications", label: "Certifications" },
-  { href: "/portfolio", label: "Portfolio" },
   { href: "/contact", label: "Contact" },
 ];
 
@@ -25,20 +25,25 @@ export function SiteHeader({ name }: { name: string }) {
   }, [pathname]);
 
   return (
-    <header className="sticky top-0 z-40 border-b border-line bg-paper/85 backdrop-blur-md">
-      <div className="container-page flex h-16 items-center justify-between md:h-20">
+    <header className="sticky top-0 z-40 border-b border-line bg-paper/80 backdrop-blur-xl">
+      <div className="container-page flex h-16 items-center justify-between gap-6 md:h-[72px]">
         <Link
           href="/"
-          className="group flex items-baseline gap-2"
+          className="group flex items-center gap-2 font-mono text-sm"
           aria-label={`${name} — home`}
         >
-          <span className="font-serif text-xl leading-none tracking-tight md:text-2xl">
+          <span aria-hidden="true" className="text-cobalt">
+            ~/
+          </span>
+          <span className="font-display text-base font-semibold tracking-tight md:text-lg">
             {name}
           </span>
-          <span className="h-1.5 w-1.5 rounded-full bg-cobalt transition group-hover:scale-125" />
+          <span aria-hidden="true" className="cursor-blink text-cobalt">
+            _
+          </span>
         </Link>
 
-        <nav className="hidden items-center gap-8 md:flex" aria-label="Main">
+        <nav className="hidden items-center gap-2 md:flex" aria-label="Main">
           {links.map((link) => {
             const active = isActive(pathname, link.href);
             return (
@@ -46,13 +51,14 @@ export function SiteHeader({ name }: { name: string }) {
                 key={link.href}
                 href={link.href}
                 aria-current={active ? "page" : undefined}
-                className={`eyebrow relative py-2 transition-colors hover:text-cobalt ${
+                className={`relative px-3 py-2 font-mono text-[11px] uppercase tracking-[0.16em] transition-colors hover:text-cobalt ${
                   active ? "text-cobalt" : "text-ink-soft"
                 }`}
               >
                 {link.label}
                 <span
-                  className={`absolute inset-x-0 -bottom-0.5 h-px bg-cobalt transition-transform duration-300 ${
+                  aria-hidden="true"
+                  className={`absolute inset-x-3 -bottom-px h-px bg-cobalt transition-transform duration-300 ${
                     active ? "scale-x-100" : "scale-x-0"
                   }`}
                 />
@@ -85,38 +91,35 @@ export function SiteHeader({ name }: { name: string }) {
       </div>
 
       {open && (
-        <div
-          id="mobile-menu"
-          className="border-t border-line bg-paper md:hidden"
-        >
+        <div id="mobile-menu" className="border-t border-line bg-paper md:hidden">
           <nav className="container-page py-4" aria-label="Mobile">
             <ul>
               {links.map((link, index) => {
                 const active = isActive(pathname, link.href);
                 return (
-                  <li key={link.href} className="border-b border-line/70 last:border-0">
+                  <li
+                    key={link.href}
+                    className="border-b border-line/70 last:border-0"
+                  >
                     <Link
                       href={link.href}
                       className="flex items-baseline justify-between py-4"
                     >
                       <span
-                        className={`font-serif text-3xl ${
+                        className={`font-display text-2xl font-medium tracking-tight ${
                           active ? "text-cobalt" : "text-ink"
                         }`}
                       >
                         {link.label}
                       </span>
                       <span className="eyebrow text-ink-soft">
-                        0{index + 1}
+                        {String(index + 1).padStart(2, "0")}
                       </span>
                     </Link>
                   </li>
                 );
               })}
             </ul>
-            <p className="eyebrow mt-6 pb-2 text-ink-soft">
-              Available for select work
-            </p>
           </nav>
         </div>
       )}

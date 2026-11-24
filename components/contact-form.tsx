@@ -22,7 +22,7 @@ export function ContactForm() {
     return (
       <div className="border border-line bg-paper p-8 md:p-10">
         <p className="eyebrow text-cobalt">Message received</p>
-        <h2 className="mt-4 font-serif text-3xl leading-tight">
+        <h2 className="mt-4 font-display text-3xl font-medium leading-tight">
           Thank you for reaching out.
         </h2>
         <p className="mt-3 text-sm leading-relaxed text-ink-soft">
@@ -114,7 +114,7 @@ export function ContactForm() {
       <button
         type="submit"
         disabled={pending}
-        className="group inline-flex w-full items-center justify-between gap-3 bg-cobalt px-6 py-4 text-sm font-semibold text-white transition-colors hover:bg-cobalt-deep disabled:cursor-not-allowed disabled:opacity-60"
+        className="group inline-flex w-full items-center justify-between gap-3 bg-cobalt px-6 py-4 font-mono text-xs font-semibold uppercase tracking-[0.12em] text-on-accent transition-colors hover:bg-cobalt-deep disabled:cursor-not-allowed disabled:opacity-60"
       >
         <span>{pending ? "Sending…" : "Send message"}</span>
         <span

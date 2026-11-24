@@ -1,13 +1,13 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1200" role="img" aria-label="Fieldnote project placeholder">
-  <rect width="1600" height="1200" fill="#ece7db"/>
-  <g fill="none" stroke="#15171b" stroke-opacity="0.55">
+  <rect width="1600" height="1200" fill="#0b1118"/>
+  <g fill="none" stroke="#e7eef6" stroke-opacity="0.22">
     <rect x="300" y="220" width="1000" height="760" stroke-width="2"/>
     <rect x="380" y="300" width="840" height="600" stroke-width="1.5"/>
     <rect x="460" y="380" width="680" height="440" stroke-width="1"/>
   </g>
-  <circle cx="800" cy="600" r="70" fill="#1b3bd8"/>
-  <circle cx="800" cy="600" r="150" fill="none" stroke="#1b3bd8" stroke-opacity="0.4"/>
-  <text x="300" y="160" font-family="Georgia, serif" font-size="110" fill="#15171b">Fieldnote</text>
-  <text x="300" y="1090" font-family="Helvetica, Arial, sans-serif" font-size="22" letter-spacing="6" fill="#585b63">OFFLINE-FIRST RESEARCH NOTES</text>
-  <text x="1300" y="1090" text-anchor="end" font-family="Helvetica, Arial, sans-serif" font-size="18" letter-spacing="4" fill="#585b63" fill-opacity="0.7">PLACEHOLDER COVER</text>
+  <circle cx="800" cy="600" r="70" fill="#3ddc97"/>
+  <circle cx="800" cy="600" r="150" fill="none" stroke="#3ddc97" stroke-opacity="0.4"/>
+  <text x="300" y="160" font-family="'Space Grotesk', sans-serif" font-size="110" fill="#e7eef6">Fieldnote</text>
+  <text x="300" y="1090" font-family="'JetBrains Mono', monospace" font-size="22" letter-spacing="6" fill="#8fa1b5">OFFLINE-FIRST RESEARCH NOTES</text>
+  <text x="1300" y="1090" text-anchor="end" font-family="'JetBrains Mono', monospace" font-size="18" letter-spacing="4" fill="#8fa1b5" fill-opacity="0.7">PLACEHOLDER COVER</text>
 </svg>

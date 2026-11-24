@@ -19,10 +19,10 @@ export default async function CertificationsPage() {
             <span aria-hidden="true" className="h-px w-10 bg-cobalt" />
             Certifications
           </p>
-          <h1 className="mt-6 font-serif text-[clamp(2.8rem,7vw,5.5rem)] leading-[0.95] tracking-[-0.02em]">
+          <h1 className="mt-6 font-display text-[clamp(2.8rem,7vw,5rem)] font-medium leading-[0.94] tracking-[-0.045em]">
             Credentials &amp;
             <br />
-            <span className="italic text-cobalt">continuous learning</span>
+            <span className="text-cobalt">continuous learning</span>
           </h1>
         </div>
         <div className="lg:col-span-4">
@@ -39,7 +39,7 @@ export default async function CertificationsPage() {
 
       {certifications.length === 0 ? (
         <div className="mt-16 border border-dashed border-line px-6 py-20 text-center">
-          <p className="font-serif text-3xl">Nothing published yet</p>
+          <p className="font-display text-3xl">Nothing published yet</p>
           <p className="mx-auto mt-3 max-w-sm text-sm text-ink-soft">
             Certifications added from the admin dashboard will appear on this
             page.
@@ -50,7 +50,7 @@ export default async function CertificationsPage() {
           {certifications.map((certification) => (
             <article
               key={certification.id}
-              className="group flex flex-col border border-line bg-paper p-6 transition-colors hover:border-ink/30 md:p-8"
+              className="group flex flex-col border border-line bg-paper-soft/40 p-6 transition-colors hover:border-cobalt/50 md:p-8"
             >
               <div className="flex items-start justify-between gap-4">
                 <span className="eyebrow text-cobalt">
@@ -75,7 +75,7 @@ export default async function CertificationsPage() {
                   </div>
                 )}
                 <div>
-                  <h2 className="font-serif text-2xl leading-snug transition-colors group-hover:text-cobalt">
+                  <h2 className="font-display text-xl font-medium leading-snug tracking-[-0.01em] transition-colors group-hover:text-cobalt md:text-2xl">
                     {certification.title}
                   </h2>
                   <p className="mt-1 text-sm text-ink-soft">
@@ -114,7 +114,7 @@ export default async function CertificationsPage() {
                   href={certification.credentialUrl}
                   target="_blank"
                   rel="noreferrer noopener"
-                  className="mt-6 inline-flex items-center gap-2 text-sm font-semibold underline-offset-4 hover:text-cobalt hover:underline"
+                  className="mt-6 inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.12em] underline-offset-4 hover:text-cobalt hover:underline"
                 >
                   Verify credential
                   <span aria-hidden="true">↗</span>

@@ -52,7 +52,7 @@ export default async function ProjectDetailPage({ params }: PageProps) {
             <span aria-hidden="true" className="h-px w-6 bg-cobalt/40" />
             <span>{project.role}</span>
           </p>
-          <h1 className="mt-6 font-serif text-[clamp(2.6rem,6.5vw,5rem)] leading-[0.95] tracking-[-0.02em]">
+          <h1 className="mt-6 font-display text-[clamp(2.6rem,6.5vw,4.6rem)] font-medium leading-[0.94] tracking-[-0.04em]">
             {project.title}
           </h1>
           <p className="mt-6 max-w-2xl text-lg leading-relaxed text-ink-soft text-pretty">
@@ -66,7 +66,7 @@ export default async function ProjectDetailPage({ params }: PageProps) {
               href={project.liveUrl}
               target="_blank"
               rel="noreferrer noopener"
-              className="group inline-flex items-center gap-2 bg-cobalt px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-cobalt-deep"
+              className="group inline-flex items-center gap-2 bg-cobalt px-5 py-3 font-mono text-[11px] font-semibold uppercase tracking-[0.12em] text-on-accent transition-colors hover:bg-cobalt-deep"
             >
               Live site
               <span aria-hidden="true">↗</span>
@@ -77,7 +77,7 @@ export default async function ProjectDetailPage({ params }: PageProps) {
               href={project.githubUrl}
               target="_blank"
               rel="noreferrer noopener"
-              className="inline-flex items-center gap-2 border border-ink/25 px-5 py-3 text-sm font-semibold transition-colors hover:border-ink hover:bg-ink hover:text-paper"
+              className="inline-flex items-center gap-2 border border-ink/25 px-5 py-3 font-mono text-[11px] font-semibold uppercase tracking-[0.12em] transition-colors hover:border-cobalt hover:text-cobalt"
             >
               Source
               <span aria-hidden="true">↗</span>
@@ -133,7 +133,7 @@ export default async function ProjectDetailPage({ params }: PageProps) {
           </dl>
 
           <div className="mt-8 border border-line bg-paper-soft/60 p-6">
-            <p className="font-serif text-2xl leading-snug">
+            <p className="font-display text-2xl font-medium leading-snug">
               Interested in something similar?
             </p>
             <p className="mt-2 text-sm leading-relaxed text-ink-soft">
