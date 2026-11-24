@@ -1,0 +1,12 @@
+node_modules
+.next
+.git
+.gitignore
+.env
+.env*.local
+*.log
+uploads
+prisma/dev.db
+prisma/dev.db-journal
+README.md
+AGENTS.md
